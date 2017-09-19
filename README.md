@@ -5,6 +5,18 @@ It uses the TF-IDF algorithm to calculate the similarity between all documents a
 
 The program uses Maven and JavaFx and requires a Apache Solr Cloud configuration to index and query data.
 
+# What is DocGraph
+DocGraph aims to offer a tool, which can be used to analyze text documents, to detect similarities
+between documents and to present the results.
+
+To this end, documents will be divided into terms and their similarity will be calculated, based
+on their TF-IDF values. Because different document types will be analyzed, the indexing software
+"Apache Solr" will be used. This software is based on "Apache Lucene" and uses "Apache Tika"
+additionally. Apache Tika can parse different document types (TXT-, PDF- & Word-files) and
+forward them to Solr. On these grounds, "Apache Solr" is perfectly suited for this project. The
+calculated similarities will be presented in a graph. Furthermore the user can enter search keys and
+similar documents will be shown to him.
+
 
 # Installation
 The project rests on two programs. Apache Solr must be preinstalled and the custom tool (written in
