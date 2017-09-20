@@ -3,7 +3,6 @@ package model;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Optional;
 
 import org.apache.solr.common.util.SimpleOrderedMap;
 
