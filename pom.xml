@@ -3,16 +3,40 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.ostfalia.ebook</groupId>
 	<artifactId>DocGraph</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<build>
-		<sourceDirectory>src</sourceDirectory>
+<!-- 		<sourceDirectory>src</sourceDirectory> -->
 		<plugins>
 			<plugin>
+				<!-- Compile java to class -->
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.5.1</version>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<!-- Include dependencies and libraries in the jar file -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>view.App</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -27,11 +51,11 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-		    <groupId>mdsj</groupId>
-		    <artifactId>mdsj.MDSJ</artifactId>
-		    <version>0.2</version>
-		    <scope>system</scope>
-		    <systemPath>${project.basedir}/mdsj.jar</systemPath>
+			<groupId>mdsj</groupId>
+			<artifactId>mdsj.MDSJ</artifactId>
+			<version>0.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/mdsj.jar</systemPath>
 		</dependency>
 	</dependencies>
 </project>
